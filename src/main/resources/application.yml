@@ -1,0 +1,19 @@
+#定义注册中心端口号为8888
+server:
+  port: 8888
+spring:
+  application:
+    name: server-center1
+eureka:
+  instance:
+    hostname: center1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka/
+#  注册中心没必要将自己注册给自己
+    register-with-eureka: false
+#  注册中心不需要去检索服务，调用服务，故而不需要获取注册服务清单 
+    fetch-registry: false
+  server:
+    peer-node-read-timeout-ms: 12000
+    enable-self-preservation: false
